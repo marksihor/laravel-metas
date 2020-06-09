@@ -1,0 +1,24 @@
+{
+    "name": "marksihor/laravel-metas",
+    "description": "Laravel metas package.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ihor Korotkyi",
+            "email": "marks.ihor@gmail.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": "~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarksIhor\\LaravelMetas\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["MarksIhor\\LaravelMetas\\MetasServiceProvider"]
+        }
+    }
+}
