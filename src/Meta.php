@@ -20,7 +20,7 @@ class Meta extends Model
 
     public function setValueAttribute($value)
     {
-        return is_array($value) ? json_encode($value) : $value;
+        $this->attributes['value'] = is_array($value) ? json_encode($value) : $value;
     }
 
     protected function isJson($string)
