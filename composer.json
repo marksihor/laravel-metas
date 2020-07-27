@@ -1,6 +1,6 @@
 {
     "name": "marksihor/laravel-metas",
-    "description": "Laravel metas package.",
+    "description": "Laravel metas package for laravel and lumen.",
     "license": "MIT",
     "authors": [
         {
@@ -8,9 +8,6 @@
             "email": "marks.ihor@gmail.com"
         }
     ],
-    "require": {
-        "laravel/framework": "~7.0"
-    },
     "autoload": {
         "psr-4": {
             "MarksIhor\\LaravelMetas\\": "src"
