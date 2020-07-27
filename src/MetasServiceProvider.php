@@ -1,6 +1,6 @@
 <?php
 
-namespace MarksIhor\LaravelMessaging;
+namespace MarksIhor\LaravelMetas;
 
 use Illuminate\Support\ServiceProvider;
 

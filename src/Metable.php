@@ -2,7 +2,7 @@
 
 namespace MarksIhor\LaravelMetas;
 
-use MarksIhor\LaravelMessaging\Meta;
+use MarksIhor\LaravelMetas\Meta;
 
 trait Metable
 {
