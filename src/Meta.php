@@ -1,6 +1,6 @@
 <?php
 
-namespace MarksIhor\LaravelMetas\Models;
+namespace MarksIhor\LaravelMetas;
 
 use Illuminate\Database\Eloquent\Model;
 
