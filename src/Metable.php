@@ -11,39 +11,45 @@ trait Metable
         return $this->morphMany('App\Models\Meta', 'metable');
     }
 
-    public function getMetas(): array
+    public function getMetas(?array $additionalCredentials = []): array
     {
         $result = [];
-        $metas = Meta::where([
-            'metable_id' => $this->id, 'metable_type' => $this->getMorphClass()
-        ])->get(['key', 'value']);
+        $metas = Meta::where(array_merge(
+            ['metable_id' => $this->id, 'metable_type' => $this->getMorphClass()],
+            $additionalCredentials
+        ))->get(['key', 'value']);
 
         foreach ($metas as $meta) $result[$meta->key] = $meta->value;
 
         return $result;
     }
 
-    public function setMeta(string $key, $value)
+    public function setMeta(string $key, $value, ?array $additionalCredentials = [])
     {
         return Meta::updateOrCreate(
-            ['metable_id' => $this->id, 'metable_type' => $this->getMorphClass(), 'key' => $key],
+            array_merge(
+                ['metable_id' => $this->id, 'metable_type' => $this->getMorphClass(), 'key' => $key],
+                $additionalCredentials
+            ),
             ['value' => $value]
         );
     }
 
-    public function getMeta(string $key)
+    public function getMeta(string $key, ?array $additionalCredentials = [])
     {
-        $meta = Meta::where([
-            'metable_id' => $this->id, 'metable_type' => $this->getMorphClass(), 'key' => $key
-        ])->first('value');
+        $meta = Meta::where(array_merge(
+            ['metable_id' => $this->id, 'metable_type' => $this->getMorphClass(), 'key' => $key],
+            $additionalCredentials
+        ))->first('value');
 
         return $meta ? $meta->value : null;
     }
 
-    public function unsetMeta(string $key)
+    public function unsetMeta(string $key, ?array $additionalCredentials = [])
     {
-        Meta::where([
-            'metable_id' => $this->id, 'metable_type' => $this->getMorphClass(), 'key' => $key
-        ])->delete();
+        Meta::where(array_merge(
+            ['metable_id' => $this->id, 'metable_type' => $this->getMorphClass(), 'key' => $key],
+            $additionalCredentials
+        ))->delete();
     }
 }
