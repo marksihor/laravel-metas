@@ -8,7 +8,7 @@ trait Metable
 {
     public function metas()
     {
-        return $this->morphMany('App\Models\Meta', 'metable');
+        return $this->morphMany('MarksIhor\LaravelMetas\Meta', 'metable');
     }
 
     public function getMetas(?array $additionalCredentials = []): array
