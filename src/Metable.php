@@ -2,8 +2,6 @@
 
 namespace MarksIhor\LaravelMetas;
 
-use MarksIhor\LaravelMetas\Meta;
-
 trait Metable
 {
     public function metas()
@@ -33,6 +31,11 @@ trait Metable
             ),
             ['value' => $value]
         );
+    }
+
+    public function setMetaViaJob(string $key, $value, ?array $additionalCredentials = [])
+    {
+        return dispatch(new SetMetaJob($this, $key, $value, $additionalCredentials));
     }
 
     public function getMeta(string $key, ?array $additionalCredentials = [])
